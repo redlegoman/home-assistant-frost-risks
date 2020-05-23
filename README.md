@@ -1,4 +1,4 @@
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # frost_risks
 Frost risks sensors for HA (absolute humidity, dew point, freezing point and frost risk levels)
 
