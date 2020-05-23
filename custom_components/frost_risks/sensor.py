@@ -39,8 +39,8 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 SENSOR_TYPES = {
     'absolutehumidity': [DEVICE_CLASS_HUMIDITY, 'Absolute Humidity', 'g/m³'],
     'dewpoint': [DEVICE_CLASS_TEMPERATURE, 'Dew Point', '°C'],
-    'freezepoint': [DEVICE_CLASS_TEMPERATURE, 'freeze point', '°C'],	
-    'perception': [None, 'Thermal Perception', None],
+    'freezepoint': [DEVICE_CLASS_TEMPERATURE, 'Freeze Point', '°C'],	
+    'risklevel': [None, 'Risk Level', None],
 }
 
 async def async_setup_platform(hass, config, async_add_entities,
@@ -195,6 +195,22 @@ class SensorThermalComfort(Entity):
             return "Extremely uncomfortable, oppressive"
         return "Severely high, even deadly for asthma related illnesses"
 
+    def computeRiskLevel(self, temperature, humidity):
+        """ """
+        thresholdAbsHumidity = 2.8
+        dewPoint = self.computeDewPoint(temperature, humidity)
+        absoluteHumidity = self.computeAbsoluteHumidity(temperature, humidity)
+        freezePoint = self.computeFreezingPoint(temperature, humidity)
+        if temperature <= 1 and freezePoint <= 0 and absoluteHumidity < thresholdAbsHumidity:
+            return 1 # Givre peu probable malgré la température
+        elif temperature <= 4 and freezePoint <= 0.5 and absoluteHumidity > thresholdAbsHumidity:
+            return 2 # Givre peu probable malgré la température
+        elif temperature <= 1 and freezePoint <= 0 and absoluteHumidity > thresholdAbsHumidity:
+            return 3 # Présence de givre
+        return 0 # Aucun risque de givre
+
+
+
     def computeAbsoluteHumidity(self, temperature, humidity):
         """https://carnotcycle.wordpress.com/2012/08/04/how-to-convert-relative-humidity-to-absolute-humidity/"""
         absTemperature = temperature + 273.15;
@@ -256,6 +272,8 @@ class SensorThermalComfort(Entity):
                 value = self.computeAbsoluteHumidity(self._temperature, self._humidity)
             elif self._sensor_type == "freezepoint":
                 value = self.computeFreezingPoint(self._temperature, self._humidity)
+            elif self._sensor_type == "risklevel":
+                value = self.computeRiskLevel(self._temperature, self._humidity)
 
         self._state = value
         self._device_state_attributes[ATTR_TEMPERATURE] = self._temperature
