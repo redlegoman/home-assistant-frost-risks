@@ -31,12 +31,15 @@ sensor:
 
 #### Absolute Humidity
 
+![absolute_humidity](https://user-images.githubusercontent.com/25136535/82730932-c8f23280-9d03-11ea-8c4b-a84d112f1a49.png)
 
 #### Dew Point
 
+![dewpoint](https://user-images.githubusercontent.com/25136535/82730959-ee7f3c00-9d03-11ea-8fad-86e08c5b52ae.png)
 
 #### freezing Point
 
+![freezing_point](https://user-images.githubusercontent.com/25136535/82730895-7fa1e300-9d03-11ea-9329-8109b1a5c4f6.png)
 
 #### Risk level
 
