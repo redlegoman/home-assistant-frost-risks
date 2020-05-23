@@ -33,7 +33,7 @@ sensor:
 - entity_picture_template
 
 
-## To Do
+## Todo List
 
 - Risk level sensor
 
