@@ -1,5 +1,5 @@
-# thermal_comfort
-Thermal Comfort sensor for HA (absolute humidity, heat index, dew point, thermal perception)
+# frost-risks
+Frost risks sensors for HA (absolute humidity, dew point, freezing point and frost risk levels)
 
 ## Usage
 
