@@ -35,4 +35,10 @@ sensor:
 #### Dew Point
 
 
+#### freezing Point
+
+
+#### Risk level
+
+
 
