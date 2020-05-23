@@ -2,6 +2,10 @@
 # frost_risks
 Frost risks sensors for HA (absolute humidity, dew point, freezing point and frost risk levels)
 
+## Installation
+
+Use [hacs](https://custom-components.github.io/hacs/) with this repo URL https://github.com/papo-o/home-assistant-frost-risks or copy `custom_components/` to your HA configuration.
+
 ## Usage
 
 To use, add the following to your `configuration.yaml` file:
