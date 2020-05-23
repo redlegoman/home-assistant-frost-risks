@@ -1,3 +1,1 @@
-      
-      
-      
+"""Custom frost risks integration."""
