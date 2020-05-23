@@ -1,4 +1,3 @@
-[![License][license-shield]](LICENSE)
 
 # frost_risks
 Frost risks sensors for HA (absolute humidity, dew point, freezing point and frost risk levels)
