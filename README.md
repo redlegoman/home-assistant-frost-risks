@@ -32,6 +32,12 @@ sensor:
 - icon_template
 - entity_picture_template
 
+
+## To Do
+
+- Risk level sensor
+
+
 ## Screenshots
 
 #### Absolute Humidity
