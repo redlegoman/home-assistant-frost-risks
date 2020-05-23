@@ -38,8 +38,8 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 
 SENSOR_TYPES = {
     'absolutehumidity': [DEVICE_CLASS_HUMIDITY, 'Absolute Humidity', 'g/m³'],
-    'heatindex': [DEVICE_CLASS_TEMPERATURE, 'Heat Index', '°C'],
     'dewpoint': [DEVICE_CLASS_TEMPERATURE, 'Dew Point', '°C'],
+    'freezepoint': [DEVICE_CLASS_TEMPERATURE, 'freeze point', '°C'],	
     'perception': [None, 'Thermal Perception', None],
 }
 
@@ -138,6 +138,13 @@ class SensorThermalComfort(Entity):
         Td = math.log(VP / 0.61078)
         Td = (241.88 * Td) / (17.558 - Td)
         return round(Td, 2)
+
+    def computeFreezingPoint(self, temperature, humidity):
+        """ https://pon.fr/dzvents-alerte-givre-et-calcul-humidite-absolue/ """
+        dewPoint = self.computeDewPoint(temperature, humidity)
+        T = temperature + 273.15
+        Td = dewPoint + 273.15
+        return round((Td + (2671.02 /((2954.61/T) + 2.193665 * math.log(T) - 13.3448))-T)-273.15,2)
 
     def toFahrenheit(self, celsius):
         """celsius to fahrenheit"""
@@ -245,14 +252,10 @@ class SensorThermalComfort(Entity):
         if self._temperature and self._humidity:
             if self._sensor_type == "dewpoint":
                 value = self.computeDewPoint(self._temperature, self._humidity)
-            if self._sensor_type == "heatindex":
-                value = self.computeHeatIndex(self._temperature, self._humidity)
-            elif self._sensor_type == "perception":
-                value = self.computePerception(self._temperature, self._humidity)
             elif self._sensor_type == "absolutehumidity":
                 value = self.computeAbsoluteHumidity(self._temperature, self._humidity)
-            elif self._sensor_type == "comfortratio":
-                value = "comfortratio"
+            elif self._sensor_type == "freezepoint":
+                value = self.computeFreezingPoint(self._temperature, self._humidity)
 
         self._state = value
         self._device_state_attributes[ATTR_TEMPERATURE] = self._temperature
