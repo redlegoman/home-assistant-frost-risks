@@ -35,8 +35,7 @@ sensor:
 
 ## Todo List
 
-- Risk level sensor
-
+- notification examples
 
 ## Screenshots
 
