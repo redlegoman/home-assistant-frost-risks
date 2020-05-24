@@ -22,6 +22,15 @@ sensor:
         ...
 
 ```
+also you can add dark Sky apparent temperature and humidity 12 hours sensors for predict a risk
+
+```
+      frost_prevision:
+        friendly_name: prevision à 12 h
+        temperature_sensor: sensor.dark_sky_apparent_temperature_12h
+        humidity_sensor: sensor.dark_sky_humidity_12h
+```
+
 
 #### Required
 - temperature_sensor
