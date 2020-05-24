@@ -55,3 +55,7 @@ sensor:
 
 ![riskLevel](https://user-images.githubusercontent.com/25136535/82762799-6aac7900-9e03-11ea-9611-27ed1757561b.png)
 
+### With Dark Sky sensors for 12 hours prediction 
+
+![darkskyPredic](https://user-images.githubusercontent.com/25136535/82763079-2ae69100-9e05-11ea-8af8-5c26363e5a83.png)
+
