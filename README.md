@@ -8,7 +8,7 @@ Based on / ripped off from : https://github.com/papo-o/home-assistant-frost-risk
 
 I would have used @papo-o's version , but it just didn't load in HA and it had a logic check missing
 
-[@papo-o]( https://github.com/papo-o
+[@papo-o](https://github.com/papo-o)
 
 ## Installation
 
