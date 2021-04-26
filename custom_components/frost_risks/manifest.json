@@ -2,8 +2,8 @@
   "version": "0.1",
   "domain": "frost_risks",
   "name": "Frost risks",
-  "documentation": "https://github.com/papo-o/frost_risks/blob/master/README.md",
+  "documentation": "https://github.com/redlegoman/frost_risks/blob/master/README.md",
   "dependencies": [],
-  "codeowners": ["@dolezsa","@papo-o"],
+  "codeowners": ["@dolezsa","@papo-o","@redlegoman"],
   "requirements": []
 }
