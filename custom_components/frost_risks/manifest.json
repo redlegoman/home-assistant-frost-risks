@@ -1,4 +1,5 @@
 {
+  "version": "0.1",
   "domain": "frost_risks",
   "name": "Frost risks",
   "documentation": "https://github.com/papo-o/frost_risks/blob/master/README.md",
