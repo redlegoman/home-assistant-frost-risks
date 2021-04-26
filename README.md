@@ -1,6 +1,12 @@
+
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # frost_risks
 Frost risks sensors for HA (absolute humidity, dew point, freezing point and frost risk levels)
+
+Based on / ripped off from : https://github.com/papo-o/home-assistant-frost-risks
+
+I would have used papo-o's version , but it just didn't load in HA and it had a logic check missing
 
 ## Installation
 
