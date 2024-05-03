@@ -14,7 +14,7 @@ from homeassistant.const import (
 from homeassistant.exceptions import TemplateError
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity import Entity, async_generate_entity_id
-from homeassistant.helpers.event import async_track_state_change
+from homeassistant.helpers.event import async_track_state_change_event
 
 import math
 
@@ -98,10 +98,10 @@ class SensorThermalComfort(Entity):
         self._temperature = None
         self._humidity = None
 
-        async_track_state_change(
+        async_track_state_change_event(
             self.hass, self._temperature_entity, self.temperature_state_listener)
 
-        async_track_state_change(
+        async_track_state_change_event(
             self.hass, self._humidity_entity, self.humidity_state_listener)
 
         temperature_state = hass.states.get(temperature_entity)
